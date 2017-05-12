@@ -1,0 +1,26 @@
+<h1><%= @user.username %>'s Workouts</h1>
+<table>
+    <tr>
+        <th>Date</th>
+        <th>Activity Description</th>
+        <th>Duration</th>
+    </tr>
+<% @user.workouts.each do |workout| %>
+    <tr>
+        <td><%= workout.date %></td>
+        <td><%= workout.activity_description %></td>
+        <td><%= workout.duration %></td>
+    </tr>
+<% end %>
+</table>
+
+<style>
+    table {
+    border-collapse: separate;
+    border-spacing: 50px 0;
+    }
+
+    td {
+    padding: 10px 0;
+    }
+</style>
