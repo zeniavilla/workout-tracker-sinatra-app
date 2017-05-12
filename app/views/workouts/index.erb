@@ -30,7 +30,19 @@
     td {
     padding: 10px 0;
     }
+
+    .error {
+        color: red;
+    }
 </style>
+
+<div class="error">
+<% if flash.has?(:error_own_workouts) %>
+    <%= flash[:error_own_workouts] %>
+    <br></br>
+<% end %>
+</div>
+
 
 <a href="/workouts/new">Add New Workout</a>
 

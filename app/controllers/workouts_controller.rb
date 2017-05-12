@@ -33,7 +33,12 @@ class WorkoutsController < ApplicationController
 
     get '/workouts/:id' do
         @workout = Workout.find(params[:id])
-        erb :'/workouts/show'
+        if @workout.user_id == current_user(session).id
+            erb :'/workouts/show'
+        else
+            flash[:error_own_workouts] = "You can only view your own workouts."
+            redirect '/workouts/index'
+        end
     end
 
 end
