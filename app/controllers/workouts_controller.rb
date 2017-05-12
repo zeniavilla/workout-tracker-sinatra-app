@@ -9,4 +9,12 @@ class WorkoutsController < ApplicationController
         end
     end
 
+    get '/workouts/new' do
+        if logged_in?(session)
+            erb :'/workouts/new'
+        else
+            redirect "/users/login"
+        end
+    end
+
 end
