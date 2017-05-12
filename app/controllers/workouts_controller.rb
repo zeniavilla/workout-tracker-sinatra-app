@@ -23,6 +23,7 @@ class WorkoutsController < ApplicationController
         @workout = Workout.new(date: params[:date], activity_description: params[:activity_description], duration: params[:duration])
         @workout.save
         if @workout.save
+            current_user(session).workouts << @workout
             redirect '/workouts/index'
         else
             redirect '/workouts/new'
