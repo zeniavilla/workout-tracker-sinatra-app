@@ -20,7 +20,13 @@ class WorkoutsController < ApplicationController
     end
 
     post '/workouts/new' do
-        
+        @workout = Workout.new(date: params[:date], activity_description: params[:activity_description], duration: params[:duration])
+        @workout.save
+        if @workout.save
+            redirect '/workouts/index'
+        else
+            redirect '/workouts/new'
+        end
     end
 
 end
