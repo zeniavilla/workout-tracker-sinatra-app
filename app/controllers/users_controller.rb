@@ -12,7 +12,7 @@ class UsersController < ApplicationController
             flash[:success_login] = "Successfully created account."
             redirect "/workouts/index"
         else
-            flash[:error_signup] = "Please enter a username, email, and password."
+            flash[:error_signup] = "Please enter a valid username, email, and password."
             redirect back
         end
     end

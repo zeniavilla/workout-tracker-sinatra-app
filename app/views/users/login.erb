@@ -1,19 +1,17 @@
 <form action="/users/login" method="POST">
     <p><label for="username">Username: <input type="text" name="username" placeholder="Enter username"></label></p>
-    <p><label for="password">Password: <input type="text" name="password" placeholder="Enter password"></label></p>
+    <p><label for="password">Password: <input type="password" name="password" placeholder="Enter password"></label></p>
     <input type="submit" value="Log In">
 </form>
-Don't have an account? <a href="/users/signup">Sign Up</a>
-<br></br>
+
+
 <div class="error">
 <% if flash.has?(:error_login) %>
     <%= flash[:error_login] %>
-<% end %>
-</div>
-
-<div class="error">
-<% if flash.has?(:please_login) %>
+    <br></br>
+<% elsif flash.has?(:please_login) %>
     <%= flash[:please_login] %>
+    <br></br>
 <% end %>
 </div>
 
@@ -23,3 +21,4 @@ Don't have an account? <a href="/users/signup">Sign Up</a>
     }
 </style>
 
+Don't have an account? <a href="/users/signup">Sign Up</a>
