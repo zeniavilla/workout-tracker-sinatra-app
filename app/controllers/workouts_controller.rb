@@ -47,6 +47,7 @@ class WorkoutsController < ApplicationController
         if @workout.user_id == current_user(session).id
             erb :'/workouts/edit'
         else
+            flash[:error_own_workouts] = "You can only edit your own workouts."
             redirect '/workouts/index'
         end
     end
