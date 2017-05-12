@@ -2,7 +2,7 @@
 
 <form action="/workouts/<%= @workout.id %>/edit" method="post">
     <input id="hidden" type="hidden" name="_method" value="patch">
-    <p><label for="date">Date: </label><input id="date" type="text" name="date" value="<%= @workout.date %>"></p>   
+    <p><label for="date">Date: </label><input id="date" type="date" name="date" value="<%= @workout.date %>"></p>   
 
     <p><label for="activity">Activity Description: </label><input id="activity" type="textarea" name="activity_description" value="<%= @workout.activity_description %>"></p>
 
