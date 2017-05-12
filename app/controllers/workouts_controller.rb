@@ -1,8 +1,12 @@
 class WorkoutsController < ApplicationController
 
     get '/workouts/index' do
-        @user = current_user(session)
-        erb :'/workouts/index'
+        if logged_in?(session)
+            @user = current_user(session)
+            erb :'/workouts/index'
+        else
+            redirect "/users/login"
+        end
     end
 
 end
