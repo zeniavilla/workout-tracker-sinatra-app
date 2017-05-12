@@ -11,6 +11,13 @@
             </tr>
     </table>
 
+<div class="success">
+    <% if flash.has?(:success_added) %>
+        <br></br>
+        <%= flash[:success_added] %>
+    <% end %>
+</div>
+
 <br></br>
 <a href="/workouts/index">My Workouts</a>
 
@@ -19,3 +26,9 @@
 
 <br></br>
 <a href="/users/logout">Log Out</a>
+
+<style>
+    .success {
+        color: green;
+    }
+</style>

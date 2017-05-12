@@ -24,7 +24,8 @@ class WorkoutsController < ApplicationController
         @workout.save
         if @workout.save
             current_user(session).workouts << @workout
-            redirect '/workouts/index'
+            flash[:success_added] = "Successfully added workout."
+            redirect "/workouts/#{@workout.id}"
         else
             flash[:error_workout] = "Please enter a valid date, activity description, and duration."
             redirect '/workouts/new'
