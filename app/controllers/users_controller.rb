@@ -1,7 +1,4 @@
-require 'rack-flash'
-
 class UsersController < ApplicationController
-    use Rack::Flash
 
     get '/users/signup' do
         erb :'/users/signup'

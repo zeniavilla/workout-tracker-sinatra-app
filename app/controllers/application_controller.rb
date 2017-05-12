@@ -1,3 +1,5 @@
+require 'rack-flash'
+
 class ApplicationController < Sinatra::Base
     configure do
         set :public_folder, 'public'
@@ -5,6 +7,7 @@ class ApplicationController < Sinatra::Base
         enable :sessions
         set :session_secret, 'workout-tracker'
     end
+    use Rack::Flash
 
     get '/' do
         erb :index
