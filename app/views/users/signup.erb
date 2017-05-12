@@ -1,9 +1,21 @@
-<h4>Create a user account to start tracking your workouts</h4>
+<h4>Sign up to start tracking your workouts</h4>
 
 <form action="/users/signup" method="POST">
-    <p><label for="username">Username: <input id="username" type="text" name="username"></label></p>
-    <p><label for="email">Email: <input id="email" type="text" name="email"></label></p>
-    <p><label for="password">Password: <input id="password" type="text" name="password"></label>
+    <p><label for="username">Username: <input id="username" type="text" name="username" placeholder="Enter username"></label></p>
+    <p><label for="email">Email: <input id="email" type="text" name="email" placeholder="Enter email"></label></p>
+    <p><label for="password">Password: <input id="password" type="text" name="password" placeholder="Enter password"></label>
     <br></br>
     <input type="submit" value="Sign Up">
 </form>
+
+<div class="error">
+<% if flash.has?(:error_signup) %>
+  <%= flash[:error_signup] %>
+<% end %>
+</div>
+
+<style>
+    .error {
+        color: red;
+    }
+</style>
