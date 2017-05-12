@@ -1,20 +1,25 @@
-    <table>
+<table>
+    <tr>
+        <th>Date</th>
+        <th>Activity Description</th>
+        <th>Duration</th>
+        <th></th>
+    </tr>
         <tr>
-            <th>Date</th>
-            <th>Activity Description</th>
-            <th>Duration</th>
+            <td><%= @workout.date %></td>
+            <td><%= @workout.activity_description %></td>
+            <td><%= @workout.duration %></td>
+            <td><a href="/workouts/<%= @workout.id %>/edit">Edit</a></td>
         </tr>
-            <tr>
-                <td><%= @workout.date %></td>
-                <td><%= @workout.activity_description %></td>
-                <td><%= @workout.duration %></td>
-            </tr>
-    </table>
+</table>
 
 <div class="success">
     <% if flash.has?(:success_added) %>
         <br></br>
         <%= flash[:success_added] %>
+    <% elsif flash.has?(:success_edited) %>
+        <br></br>
+        <%= flash[:success_edited] %>
     <% end %>
 </div>
 
@@ -30,5 +35,13 @@
 <style>
     .success {
         color: green;
+    }
+    table {
+    border-collapse: separate;
+    border-spacing: 50px 0;
+    }
+
+    td {
+    padding: 10px 0;
     }
 </style>

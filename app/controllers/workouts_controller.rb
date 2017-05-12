@@ -42,4 +42,20 @@ class WorkoutsController < ApplicationController
         end
     end
 
+    get '/workouts/:id/edit' do
+        @workout = Workout.find(params[:id])
+        if @workout.user_id == current_user(session).id
+            erb :'/workouts/edit'
+        else
+            redirect '/workouts/index'
+        end
+    end
+
+    patch '/workouts/:id/edit' do
+        @workout = Workout.find(params[:id])
+        @workout.update(date: params[:date], activity_description: params[:activity_description], duration: params[:duration])
+        flash[:success_edited] = "Successfully edited workout."
+        redirect "/workouts/#{@workout.id}"
+    end
+
 end
