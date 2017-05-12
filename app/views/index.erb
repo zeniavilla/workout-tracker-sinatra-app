@@ -2,3 +2,15 @@
 
 <p>Are you a new user? </p> <a href="/users/signup">Sign up</a>
 <p>Are you a regular? </p> <a href="/users/login">Login</a>
+
+<div class="success">
+    <% if flash.has?(:logged_out) %>
+        <%= flash[:logged_out] %>
+    <% end %>
+</div>
+
+<style>
+    .success {
+        color: green;
+    }
+</style>

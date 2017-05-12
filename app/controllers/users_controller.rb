@@ -34,5 +34,15 @@ class UsersController < ApplicationController
             redirect back
         end
     end
+
+    get '/users/logout' do
+        if logged_in?(session)
+            session.clear
+            flash[:logged_out] = "Successfully logged you out."
+            redirect to '/'
+        else
+            redirect to '/'
+        end
+    end
     
 end
