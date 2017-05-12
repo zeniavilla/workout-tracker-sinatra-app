@@ -26,6 +26,7 @@ class WorkoutsController < ApplicationController
             current_user(session).workouts << @workout
             redirect '/workouts/index'
         else
+            flash[:error_workout] = "Please enter a valid date, activity description, and duration."
             redirect '/workouts/new'
         end
     end
