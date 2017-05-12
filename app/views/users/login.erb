@@ -1,0 +1,17 @@
+<form action="/users/login" method="POST">
+    <p><label for="username">Username: <input type="text" name="username" placeholder="Enter username"></label></p>
+    <p><label for="password">Password: <input type="text" name="password" placeholder="Enter password"></label></p>
+    <input type="submit" value="Log In">
+</form>
+
+<div class="error">
+<% if flash.has?(:error_login) %>
+    <%= flash[:error_login] %>
+<% end %>
+</div>
+
+<style>
+    .error {
+        color: red;
+    }
+</style>
