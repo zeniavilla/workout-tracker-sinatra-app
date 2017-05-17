@@ -5,15 +5,19 @@ class UsersController < ApplicationController
     end
 
     post '/users/signup' do
-        @user = User.new(username: params[:username], email: params[:email], password: params[:password])
-        @user.save
-        if @user.save
-            session[:id] = @user.id
-            flash[:success_login] = "Successfully created account."
-            redirect "/workouts/index"
+        if User.find_by(username: params[:username]) && User.find_by(email: params[:email])
+            flash[:error] = "Username and/or email is already taken."
         else
-            flash[:error_signup] = "Please enter a valid username, email, and password."
-            redirect back
+            @user = User.new(username: params[:username], email: params[:email], password: params[:password])
+            @user.save
+            if @user.save
+                session[:id] = @user.id
+                flash[:success_login] = "Successfully created account."
+                redirect "/workouts/index"
+            else
+                flash[:error_signup] = "Please enter a valid username, email, and password."
+                redirect back
+            end
         end
     end
     

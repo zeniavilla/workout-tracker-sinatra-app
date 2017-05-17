@@ -1,7 +1,7 @@
 class WorkoutsController < ApplicationController
 
     get '/workouts/index' do
-        if logged_in?(session)
+        if logged_in?
             @user = current_user(session)
             erb :'/workouts/index'
         else
