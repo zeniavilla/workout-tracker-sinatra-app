@@ -1,20 +1,21 @@
 <h2><%= @user.username %>'s Workouts</h2>
 <% if @user.workouts.empty? %>
-    <h4>You currently have no workouts.</h4>
+    <h4>You currently have no workouts.</h4><br>
+    <a class="button" href="/workouts/new">Add a Workout</a>
 <% else %>
     <table align="center">
         <tr>
             <th>Date</th>
             <th>Activity Description</th>
             <th>Duration</th>
-            <th>View Workout</th>
+            <th></th>
         </tr>
         <% @user.workouts.each do |workout| %>
-            <tr>
+            <tr class="workout">
                 <td><%= workout.date %></td>
                 <td><%= workout.activity_description %></td>
                 <td><%= workout.duration %></td>
-                <td><a href="/workouts/<%= workout.id %>">Link</a></td>
+                <td><a class="button" href="/workouts/<%= workout.id %>">View</a></td>
             </tr>
     <% end %>
     </table>

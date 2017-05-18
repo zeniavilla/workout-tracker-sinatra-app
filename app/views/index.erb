@@ -1,16 +1,9 @@
-<h1>Welcome to Workout Tracker!</h1>
+<h1>Track your progress</h1>
 
-<p>Are you a new user? </p> <a href="/users/signup">Sign Up</a>
-<p>Are you a returning user? </p> <a href="/users/login">Log In</a>
+<h3><a class="button" href="/users/signup">Get Started</a></h3>
 
 <div class="success">
     <% if flash.has?(:logged_out) %>
         <%= flash[:logged_out] %>
     <% end %>
 </div>
-
-<style>
-    .success {
-        color: green;
-    }
-</style>

@@ -4,11 +4,18 @@
         <th>Activity Description</th>
         <th>Duration</th>
         <th></th>
+        <th></th>
     </tr>
-        <tr>
+        <tr class="workout">
             <td><%= @workout.date %></td>
             <td><%= @workout.activity_description %></td>
             <td><%= @workout.duration %></td>
-            <td><a href="/workouts/<%= @workout.id %>/edit">Edit</a></td>
+            <td><a class="button" href="/workouts/<%= @workout.id %>/edit">Edit</a></td>
+            <td>
+                <form action="/workouts/<%= @workout.id %>/delete" method="POST">
+                    <input id="hidden" type="hidden" name="_method" value="delete">
+                    <input class="button" type="submit" value="Delete">
+                </form>
+            </td>
         </tr>
 </table>

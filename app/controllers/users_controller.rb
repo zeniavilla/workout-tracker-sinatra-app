@@ -9,7 +9,6 @@ class UsersController < ApplicationController
             flash[:error] = "Username and/or email is already taken."
         else
             @user = User.new(username: params[:username], email: params[:email], password: params[:password])
-            @user.save
             if @user.save
                 session[:id] = @user.id
                 flash[:success] = "Successfully created account."
@@ -21,11 +20,11 @@ class UsersController < ApplicationController
         end
     end
     
-    get '/users/login' do
-        erb :'/users/login'
+    get '/users/signin' do
+        erb :'/users/signin'
     end
 
-    post '/users/login' do
+    post '/users/signin' do
         @user = User.find_by(username: params[:username])
         if @user && @user.authenticate(params[:password])
             session[:id] = @user.id
@@ -36,8 +35,8 @@ class UsersController < ApplicationController
         end
     end
 
-    get '/users/logout' do
-        if logged_in?(session)
+    get '/users/signout' do
+        if logged_in?
             session.clear
             flash[:success] = "Successfully logged you out."
             redirect to '/'

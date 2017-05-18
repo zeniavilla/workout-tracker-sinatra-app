@@ -6,7 +6,7 @@ class WorkoutsController < ApplicationController
             erb :'/workouts/index'
         else
             flash[:error] = "You need to be logged in to continue."
-            redirect "/users/login"
+            redirect "/users/signin"
         end
     end
 
@@ -15,13 +15,12 @@ class WorkoutsController < ApplicationController
             erb :'/workouts/new'
         else
             flash[:error] = "You need to be logged in to continue."
-            redirect "/users/login"
+            redirect "/users/signin"
         end
     end
 
     post '/workouts/new' do
         @workout = Workout.new(date: params[:date], activity_description: params[:activity_description], duration: params[:duration])
-        @workout.save
         if @workout.save
             current_user.workouts << @workout
             flash[:success] = "Successfully added workout."
@@ -59,4 +58,18 @@ class WorkoutsController < ApplicationController
         redirect "/workouts/#{@workout.id}"
     end
 
+    delete '/workouts/:id/delete' do
+        @workout = Workout.find(params[:id])
+        @workout.destroy
+        flash[:success] = "Successfully deleted workout."
+        redirect '/workouts/index'
+    end
+
 end
+
+
+# Todo:
+
+#1.  Add a persisting navbar that show different links depending on if a user logged_in?
+#2.  Clean up code that passes session as an argument
+#3.  Clean up duplicate code in your controllers and views
