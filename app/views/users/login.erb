@@ -3,22 +3,3 @@
     <p><label for="password">Password: <input type="password" name="password" placeholder="Enter password"></label></p>
     <input type="submit" value="Log In">
 </form>
-
-
-<div class="error">
-<% if flash.has?(:error_login) %>
-    <%= flash[:error_login] %>
-    <br></br>
-<% elsif flash.has?(:please_login) %>
-    <%= flash[:please_login] %>
-    <br></br>
-<% end %>
-</div>
-
-<style>
-    .error {
-        color: red;
-    }
-</style>
-
-Don't have an account? <a href="/users/signup">Sign Up</a>

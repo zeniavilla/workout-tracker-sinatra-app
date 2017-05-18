@@ -1,8 +1,8 @@
-<h1><%= @user.username %>'s Workouts</h1>
+<h2><%= @user.username %>'s Workouts</h2>
 <% if @user.workouts.empty? %>
     <h4>You currently have no workouts.</h4>
 <% else %>
-    <table>
+    <table align="center">
         <tr>
             <th>Date</th>
             <th>Activity Description</th>
@@ -20,31 +20,3 @@
     </table>
     <br></br>
 <% end %>
-
-<style>
-    table {
-    border-collapse: separate;
-    border-spacing: 50px 0;
-    }
-
-    td {
-    padding: 10px 0;
-    }
-
-    .error {
-        color: red;
-    }
-</style>
-
-<div class="error">
-<% if flash.has?(:error_own_workouts) %>
-    <%= flash[:error_own_workouts] %>
-    <br></br>
-<% end %>
-</div>
-
-
-<a href="/workouts/new">Add New Workout</a>
-
-<br></br>
-<a href="/users/logout">Log Out</a>

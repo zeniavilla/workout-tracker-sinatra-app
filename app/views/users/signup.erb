@@ -7,18 +7,3 @@
     <br></br>
     <input type="submit" value="Sign Up">
 </form>
-
-<div class="error">
-<% if flash.has?(:error_signup) %>
-  <%= flash[:error_signup] %>
-  <br></br>
-<% end %>
-</div>
-
-<style>
-    .error {
-        color: red;
-    }
-</style>
-
-Already have an account? <a href="/users/login">Log In</a>

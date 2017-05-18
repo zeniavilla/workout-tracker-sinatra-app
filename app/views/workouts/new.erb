@@ -6,21 +6,3 @@
     <p><label for="duration">Duration: </label><input id="duration" type="text" name="duration" placeholder="Enter duration"></p>          
     <input type="submit" value="Add Workout">
 </form>
-
-
-<div class="error">
-    <% if flash.has?(:error_workout) %>
-        <%= flash[:error_workout] %>
-        <br></br>
-    <% end %>
-</div>
-
-<style>
-    .error {
-        color: red;
-    }
-</style>
-
-<a href="/workouts/index">My Workouts</a>
-<br></br>
-<a href="/users/logout">Log Out</a>

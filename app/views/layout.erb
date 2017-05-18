@@ -4,19 +4,61 @@
 <head>
     <meta charset="UTF-8">
 
-    <title>The HTML5 Herald</title>
-    <meta name="description" content="The HTML5 Herald">
+    <title>Workout Tracker</title>
+    <meta name="description" content="Workout Tracker">
     <meta name="author" content>
 </head>
 
 <body>
-    <!-- # TODO add persisting Navbar -->
-    <h1>Workout Tracker</h1>
-    <div class="error">
-        <% if flash.has?(:error_signup) %>
-            <%= flash[:error_signup] %>
-        <br></br>
-        <% end %>
+    <div id="main">
+        <!-- # TODO add persisting Navbar -->
+        <div class="navbar">
+            <h2>Workout Tracker</h2>
+        </div>
+
+        
+        <div class="error">
+            <% if flash.has?(:error) %>
+                <%= flash[:error] %>
+            <% end %>
+        </div>
+        <div class="success">
+            <% if flash.has?(:success) %>
+                <%= flash[:success] %>
+                <% end %>
+            <br></br>
+        </div>
+        
+        <%= yield %>
     </div>
 </body>
 </html>
+
+<style>
+    #main {
+        text-align: center;
+    }
+
+    table {
+    border-collapse: separate;
+    border-spacing: 50px 0;
+    }
+
+    td {
+    padding: 10px 0;
+    }
+
+    .error {
+        color: red;
+    }
+
+    .success {
+        color: green;
+    }
+
+    .navbar {
+        background: #fdffff;
+        position: relative;
+    }
+</style>
+
