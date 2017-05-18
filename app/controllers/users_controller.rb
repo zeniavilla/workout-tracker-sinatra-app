@@ -12,10 +12,10 @@ class UsersController < ApplicationController
             @user.save
             if @user.save
                 session[:id] = @user.id
-                flash[:success_login] = "Successfully created account."
+                flash[:success] = "Successfully created account."
                 redirect "/workouts/index"
             else
-                flash[:error_signup] = "Please enter a valid username, email, and password."
+                flash[:error] = "Please enter a valid username, email, and password."
                 redirect back
             end
         end
@@ -31,7 +31,7 @@ class UsersController < ApplicationController
             session[:id] = @user.id
             redirect "/workouts/index"
         else
-            flash[:error_login] = "Please enter a valid username and password."
+            flash[:error] = "Please enter a valid username and password."
             redirect back
         end
     end
@@ -39,7 +39,7 @@ class UsersController < ApplicationController
     get '/users/logout' do
         if logged_in?(session)
             session.clear
-            flash[:logged_out] = "Successfully logged you out."
+            flash[:success] = "Successfully logged you out."
             redirect to '/'
         else
             redirect to '/'
