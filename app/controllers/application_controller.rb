@@ -1,4 +1,5 @@
 require 'rack-flash'
+require 'sinatra/activerecord'
 
 class ApplicationController < Sinatra::Base
     configure do
