@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 source "https://rubygems.org"
+ruby "2.3.1"
 
 gem 'sinatra'
 gem 'sqlite3'
@@ -13,3 +14,4 @@ gem 'bcrypt'
 gem 'tux'
 gem 'thin'
 gem 'rack-flash3'
+gem 'pg'
