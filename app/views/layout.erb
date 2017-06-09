@@ -6,12 +6,13 @@
 
     <title>Workout Tracker</title>
     <meta name="description" content="Workout Tracker">
-    <meta name="author" content>
+    <meta name="author" content="Zenia Villa">
+    <script src="https://use.fontawesome.com/2587b50638.js"></script>
 </head>
 
 <body>
     <div id="main">
-        <!-- # TODO add persisting Navbar -->
+        
         <div class="navbar">
             <ul>
             <li><h2>Workout Tracker</h2></li>
@@ -47,12 +48,51 @@
 </body>
 </html>
 
+
 <style>
     @import url('https://fonts.googleapis.com/css?family=Lato');
+
+
+    .col-1 {
+        float: left;
+        width: 26.666%
+    }
+
+    .col-2 {
+        float: left;
+        width: 53.333%
+    }
+
+    .col-3 p {
+        -moz-column-rule: 1px dotted #ccc;
+        -webkit-column-rule: 1px dotted #ccc;
+        column-rule: 1px dotted #ccc;
+        -moz-column-gap: 1.5em;
+        -webkit-column-gap: 1.5em;
+        column-gap: 1.5em;
+        -moz-column-count: 3;
+        -webkit-column-count: 3;
+        column-count: 3;
+    }
+
+    [class*="col-"] {
+        margin-bottom: 3%;
+        margin-left: 5%;
+        margin-right: 5%;
+    }
+
+    .middle {
+        margin-left: 0%;
+        margin-right: 0%;
+    }
 
     #main {
         text-align: center;
         font-family: 'Lato', sans-serif;
+    }
+
+    a {
+        color: black;
     }
 
     table {
@@ -64,7 +104,15 @@
         padding: 40px 35px;
     }
 
-    tr.workout:hover {background-color: #F7F7F7}
+    th {
+        font-weight: 500;
+    }
+
+    td {
+        font-weight: 200;
+    }
+
+    tr.workout:hover {background-color: #F7F7F7}  
 
     .error {
         color: red;
@@ -89,39 +137,65 @@
     .navbar li h2 {
         padding-right: 20px;
         color: #b23333;
+        font-weight: 800;
+        font-size: 1.5em;
     }
 
     .navbar a {
         text-decoration: none;
         color: black;
-        padding-right: 15px;
+        font-size: 1.2em;
+        padding-right: 45px;
     }
+
     .navbar a:hover {
         color: #b23333;
     }
 
     .signout {
-        padding-left: 100px;
+        padding-left: 300px;
         text-transform: uppercase;
     }
 
     h1 {
-        font-size: 3em;
+        font-size: 5em;
         font-weight: lighter;
         line-height: 80px;
-        padding-top: 20px;
+        padding-top: 100px;
     }
 
     h2 {
         color: #c45858;
+        font-weight: lighter;
+        font-size: 2em;
     }
 
     a {
         text-decoration: none;
     }
 
+    input {
+        box-sizing: border-box;
+        font-size: 1em;
+        font-weight: normal;
+        width: 20%;
+        padding: 1em;
+        border: 1px solid #ddd;
+        margin-bottom: 1em;
+    }
+
+    .center {
+        text-align: center;
+    }
+
     .faded {
         color: grey;
+    }
+
+    button {
+        cursor: pointer;
+        background-color: transparent;
+        border-color: transparent;
     }
 
     .button {
@@ -131,10 +205,41 @@
         padding: 15px 30px;
         border: 0;
         cursor: pointer;
+        border-radius: 2px;
     }
 
     .button:hover {
         background: #c45858;
     }
+
+    i .fa.fa-plus {
+        color: #fff;
+    }
+
+    .fa.fa-pencil-square-o {
+        font-size: 1.5em;
+        color: gray;
+    }
+
+    .fa.fa-trash-o {
+        font-size: 1.9em;
+        color: gray;
+        padding-bottom: 3px;
+    }
+
+    .workout-index-row {
+        margin-top: 5%;
+    }
+
+    .workout-index-row img {
+        height: 90px;
+    }
+
+    .index-small-text {
+        font: 200 1.3em/160% Lato, sans-serif;
+        margin-top: 3%;
+        padding: 10px;
+    }
+
 </style>
 
